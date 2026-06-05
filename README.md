@@ -1,35 +1,55 @@
 # database
 Database Basics
 
+
 # ER_model_Mail_order.png
 Mail Order database has following requirements:
+
 • The mail order company has employees, each identified by a unique employee number, first and last name, and ZIP code (postal code)
+
 • Each customer of the company is identified by a unique customer number, first and last name, and ZIP code (postal code)
+
 • Each part sold by the company is identified by a unique part number, a part name, price, and quantity in stock
+
 • Each order placed by a customer is taken by an employee and is given a unique order number. Each order contains specified quantities of one or more parts. Each order has date of receipt as well as an expected ship date. The actual ship date is also recorded
 
 
 # Relational_model_Mail_order.png
 Relational model had to go through following steps:
+
 •Identify keys (superkeys, keys, and candidate keys)
+
 •Choose a primary key for each relation and mark it on the diagram
+
 •Describe attribute data types and domains; Are there any restricted data types?
+
 •Indicate foreign keys
+
 •What types of constraints would you expect to check on those relations?
+
 •Carry out data model normalization and get the data model to 3rd normal form.
 
 1 Table - Order
 Name - Data Type - Data Type Size
 
 id - INT
+
 Date_of_receipt - VARCHAR(n) - 30
+
 Exp_ship_date - VARCHAR(n) - 30
+
 Actual_ship_date - VARCHAR(n) - 30
+
 Customer_id (FK)
+
 Employee_id (FK)
+
 ___________
+
 Key: id
+
 Candidate key: superkey from date_of_receipt and customer_id. NB! In this case date_of_receipt should be specific to seconds.
+
 Possible constraints: Date_of_receipt, Exp_ship_date, Actual_ship_date should be of the same format (like "HH:MM:SS DD-MM-YYYY")
 
 

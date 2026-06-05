@@ -98,3 +98,79 @@ The Mail order database
 •List all parts (their names) and how many times they have been included in orders (across all orders)
 
 
+# MiniInsta_queries.sql
+MiniInsta is a database created by our teacher. I cannot upload it here, so I'll add only queries I did.
+
+1. Front Page – posts by people I follow. The “I” can be hardcoded, meaning that use a variable to specify the ID of the user which is considered to be “me”. Since one post can contain more than one media record, the query can either be created as a single query (thus duplicating the post information), or separate queries for general post information and list of media elements. In case of a single query, the resulting dataset should contain following columns:
+o PostID
+o Username,
+o CreationTime (of the post)
+o MediaTypeID
+o MediaFileUrl
+o NumberOfLikes
+
+In case of separate data sets, these should contain columns like:
+
+o PostID
+o Username,
+o CreationTime
+o NumberOfLikes
+
+and (for Post Media portion)
+
+o PostID
+o MediaTypeID
+o MediaFileUrl
+
+2. Profile page – Profile header + posts by that user
+o Main query
+▪ UserID
+▪ Username
+▪ Website
+▪ Bio
+▪ ProfileImageUrl,
+▪ NumberOfPosts,
+▪ NumberOfFollowers,
+▪ NumberOfFollowedUsers
+
+3. Posts by the user, in chronologically descending order. It is sufficient to return top 1 media file for each post
+▪ PostID
+▪ LocationName
+▪ MediaType
+▪ MediaFileUrl
+• Post details page
+o Main query
+▪ PostID
+▪ Username
+▪ ProfileImageUrl
+▪ LocationName
+▪ Location
+▪ NumberOfLikes
+o Media files (in their natural order)
+▪ PostMediaID
+▪ MediaTypeID
+▪ MediaFileUrl
+o Comments in chronological order
+▪ CommentID
+▪ Comment
+▪ CreationTime
+
+4. Analytical values as a single data set (each number as a separate column):
+oTotalNumberOfUsers
+oTotalNumberOfPosts
+oAvgNumberOfPostsPerUser
+oMaxNumberOfPostsPerUser
+oAvgNumberOfLikesPerPost
+oMaxNumberOfLikesPerPost
+
+5. Top 10 Users with most followers (in descending order of the number of followers)
+oUserID
+oUsername
+oNumberOfFollowers
+•Number of user registrations by date (will return as many rows as there are unique dates)
+oDate (date only, not date and time)
+oNumberOfRegistrations
+
+6. User division by gender (should return 3 rows, one for each gender)
+oGenderName
+oNumberOfUsers
